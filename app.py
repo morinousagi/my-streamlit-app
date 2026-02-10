@@ -11,10 +11,10 @@ print(f"🟢 Rerun at: {datetime.now()}")
 
 
 # Set page configuration - page title and layout
-st.set_page_config(page_title="HDB Resale Dashboard", layout="wide")
+st.set_page_config(page_title="Flat Resale Dashboard", layout="wide")
 
-st.title("Singapore HDB Resale Dashboard")
-st.caption("Code-along: building a usable dashboard from real resale transactions.")
+st.title("SG Flat Resale Dashboard")
+st.caption("Building a usable dashboard from real resale transactions.")
 
 st.header("Dashboard Overview")
 st.subheader("What this app will show")
@@ -50,7 +50,8 @@ df = load_data(DATA_PATH)
 # show first 20 rows of df
 #st.dataframe(df.head(20), width="stretch")
 
-# set sidebar header
+
+# Sidebar header
 st.sidebar.header("Filters")
 
 # variables for sidebar filters
@@ -97,6 +98,7 @@ st.header("Filtered Results")
 st.write(f"Matching rows: {len(filtered_df):,} | Columns: {len(filtered_df.columns)}")
 st.dataframe(filtered_df, width="stretch")
 
+
 # KPI rows
 st.header("Key Metrics")
 # Create 4 columns for the metrics and unpack them
@@ -107,6 +109,7 @@ col1.metric("Transactions", f"{len(filtered_df):,}")
 col2.metric("Average Price", f"${filtered_df['resale_price'].mean():,.0f}")
 col3.metric("Median Price", f"${filtered_df['resale_price'].median():,.0f}")
 col4.metric("Median Floor Area", f"{filtered_df['floor_area_sqm'].median():.1f} sqm")
+
 
 # Visualizations
 st.header("Visual Analysis")
@@ -140,6 +143,7 @@ with col_right:
     fig_flat = px.bar(tx_by_flat, x="flat_type", y="transactions")
     # Display the Plotly chart in Streamlit
     st.plotly_chart(fig_flat, width="stretch")
+
 
 # Monthly Median Resale Price Trend
     st.subheader("Monthly Median Resale Price")
