@@ -44,10 +44,11 @@ df = load_data(DATA_PATH)
 # Set the datetime dtype explicitly for reliable filtering and charting.
 #df["month"] = pd.to_datetime(df["month"])
 
+# Preview dataset
 # , to add thousand separator
-st.write(f"Rows loaded: {len(df):,} | Columns: {len(df.columns)}")
+#st.write(f"Rows loaded: {len(df):,} | Columns: {len(df.columns)}")
 # show first 20 rows of df
-st.dataframe(df.head(20), width="stretch")
+#st.dataframe(df.head(20), width="stretch")
 
 # set sidebar header
 st.sidebar.header("Filters")
